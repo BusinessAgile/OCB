@@ -3,11 +3,10 @@
   <data>
 
     <!--
-        Plan comptable général pour la France.
-        Prend en compte les arrêtés du CRC publiés au Journal officiel
-        jusqu'à décembre 2007
+        Plan comptable pour les professions libérales en France
 
-        Version du fichier : 12-04-2008
+
+        Version du fichier : 02-05-2016
 
         Utilise les 'account types' de addons/account/data/data_account_type.xml
       -->
@@ -15,11 +14,13 @@
 
     <!-- Account Templates -->
     <record id="pcg_0" model="account.account.template">
-      <field name="name">Plan Comptable Général</field>
+      <field name="name">Plan Comptable Libérale</field>
       <field name="code">0</field>
       <field name="type">view</field>
       <field name="user_type" ref="account.data_account_type_view"/>
     </record>
+
+<!-- UPDATE LINE -->
 
     <record id="pcg_Classes_1_a_5" model="account.account.template">
       <field name="name">Comptes de bilan</field>
