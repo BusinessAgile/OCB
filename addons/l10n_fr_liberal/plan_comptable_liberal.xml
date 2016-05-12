@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+
+    <!--
+        Nomenclature des Comptes pour les professions libérales (arrêté du 30-01-1978)
+
+
+        Version du fichier : 02-05-2016
+
+        Utilise les 'account types' de addons/account/data/data_account_type.xml
+      -->
+
+
+    <!-- Account Templates -->
+    <record id="pcl_0" model="account.account.template">
+      <field name="name">Nomenclature comptable des professions libérales</field>
+      <field name="code">0</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+    </record>
+
+    <record id="pcl_I" model="account.account.template">
+      <field name="name">Comptes financiers</field>
+      <field name="code">I</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_11" model="account.account.template">
+      <field name="name">Banque</field>
+      <field name="code">11</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_I"/>
+    </record>
+
+    <record id="pcl_111" model="account.account.template">
+      <field name="name">Banque1</field>
+      <field name="code">111</field>
+      <field name="type">liquidity</field>
+      <field name="user_type" ref="account.data_account_type_bank"/>
+      <field name="parent_id" ref="pcl_11"/>
+    </record>
+
+    <record id="pcl_12" model="account.account.template">
+      <field name="name">Chèques postaux</field>
+      <field name="code">12</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_cash"/>
+      <field name="parent_id" ref="pcl_1"/>
+    </record>
+
+    <record id="pcl_13" model="account.account.template">
+      <field name="name">Caisse</field>
+      <field name="code">13</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_1"/>
+    </record>
+
+    <record id="pcl_131" model="account.account.template">
+      <field name="name">Liquidité</field>
+      <field name="code">131</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_cash"/>
+      <field name="parent_id" ref="pcl_13"/>
+    </record>
+
+    <record id="pcl_II" model="account.account.template">
+      <field name="name">Recettes professionnelles d’exploitation (TVA comprise)</field>
+      <field name="code">II</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_21" model="account.account.template">
+      <field name="name">Honoraires encaissés</field>
+      <field name="code">21</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_income"/>
+      <field name="parent_id" ref="pcl_II"/>
+    </record>
+
+    <record id="pcl_22" model="account.account.template">
+      <field name="name">Produits financiers</field>
+      <field name="code">22</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_income"/>
+      <field name="parent_id" ref="pcl_II"/>
+    </record>
+
+    <record id="pcl_23" model="account.account.template">
+      <field name="name">Gains divers</field>
+      <field name="code">23</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_income"/>
+      <field name="parent_id" ref="pcl_II"/>
+    </record>
+
+	<record id="pcl_104" model="account.account.template">
+      <field name="name">Primes liées au capital social</field>
+      <field name="code">104</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_10"/>
+    </record>
+
+    <record id="pcl_III" model="account.account.template">
+      <field name="name">Honoraires rétrocédés</field>
+      <field name="code">III</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_IV" model="account.account.template">
+      <field name="name">Dépenses professionnelles d’exploitation (TVA comprise)</field>
+      <field name="code">IV</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_41" model="account.account.template">
+      <field name="name">Achats</field>
+      <field name="code">41</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_42" model="account.account.template">
+      <field name="name">Frais de personnels</field>
+      <field name="code">42</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_421" model="account.account.template">
+      <field name="name">Salaires nets payés</field>
+      <field name="code">421</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_42"/>
+    </record>
+
+    <record id="pcl_422" model="account.account.template">
+      <field name="name">Charges sociales sur salaires</field>
+      <field name="code">422</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_42"/>
+    </record>
+
+    <record id="pcl_43" model="account.account.template">
+      <field name="name">Impôts et taxes (dont TVA payée)</field>
+      <field name="code">43</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_43"/>
+    </record>
+
+    <record id="pcl_431" model="account.account.template">
+      <field name="name">TVA payée</field>
+      <field name="code">431</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_43"/>
+    </record>
+
+    <record id="pcl_432" model="account.account.template">
+      <field name="name">CET</field>
+      <field name="code">432</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_43"/>
+    </record>
+
+    <record id="pcl_433" model="account.account.template">
+      <field name="name">Autres impôts</field>
+      <field name="code">433</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_43"/>
+    </record>
+
+    <record id="pcl_44" model="account.account.template">
+      <field name="name">Travaux, fournitures et services extérieurs</field>
+      <field name="code">44</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_441" model="account.account.template">
+      <field name="name">Loyers et charges locatives</field>
+      <field name="code">441</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_442" model="account.account.template">
+      <field name="name">Location de matériel et de mobilier</field>
+      <field name="code">442</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_443" model="account.account.template">
+      <field name="name">Entretien et réparations</field>
+      <field name="code">443</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_444" model="account.account.template">
+      <field name="name">Personnel intérimaire</field>
+      <field name="code">444</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_445" model="account.account.template">
+      <field name="name">Petit outillage</field>
+      <field name="code">445</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_446" model="account.account.template">
+      <field name="name">Chauffage, eau, gaz, électricité</field>
+      <field name="code">446</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_447" model="account.account.template">
+      <field name="name">Honoraires ne constituant pas des rétrocessions</field>
+      <field name="code">447</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_448" model="account.account.template">
+      <field name="name">Primes d’assurances</field>
+      <field name="code">448</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_44"/>
+    </record>
+
+    <record id="pcl_45" model="account.account.template">
+      <field name="name">Transports et déplacements</field>
+      <field name="code">45</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_451" model="account.account.template">
+      <field name="name">Frais de voyages et de séjours</field>
+      <field name="code">451</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_45"/>
+    </record>
+
+    <record id="pcl_452" model="account.account.template">
+      <field name="name">Frais de véhicule</field>
+      <field name="code">452</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_45"/>
+    </record>
+
+    <record id="pcl_453" model="account.account.template">
+      <field name="name">Autres frais de déplacement</field>
+      <field name="code">453</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_45"/>
+    </record>
+
+    <record id="pcl_46" model="account.account.template">
+      <field name="name">Charges sociales personnelles</field>
+      <field name="code">46</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_461" model="account.account.template">
+      <field name="name">Assurance vieillesse</field>
+      <field name="code">461</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_46"/>
+    </record>
+
+    <record id="pcl_462" model="account.account.template">
+      <field name="name">Assurance maladie</field>
+      <field name="code">462</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_46"/>
+    </record>
+
+    <record id="pcl_463" model="account.account.template">
+      <field name="name">Allocations familiales</field>
+      <field name="code">463</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_46"/>
+    </record>
+
+    <record id="pcl_464" model="account.account.template">
+      <field name="name">Autres charges</field>
+      <field name="code">464</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_46"/>
+    </record>
+
+    <record id="pcl_47" model="account.account.template">
+      <field name="name">Frais divers de gestion</field>
+      <field name="code">47</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_471" model="account.account.template">
+      <field name="name">Frais de réception, de représentation et de congrès</field>
+      <field name="code">471</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_472" model="account.account.template">
+      <field name="name">Fournitures de bureau</field>
+      <field name="code">472</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_472"/>
+    </record>
+
+    <record id="pcl_473" model="account.account.template">
+      <field name="name">Documentation</field>
+      <field name="code">473</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_474" model="account.account.template">
+      <field name="name">Frais postaux et de télécommunications</field>
+      <field name="code">474</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_475" model="account.account.template">
+      <field name="name">Frais d’actes et de contentieux</field>
+      <field name="code">475</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_476" model="account.account.template">
+      <field name="name">Cotisations syndicales et professionnelles</field>
+      <field name="code">476</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_477" model="account.account.template">
+      <field name="name">Autres frais divers de gestion</field>
+      <field name="code">47</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_47"/>
+    </record>
+
+    <record id="pcl_48" model="account.account.template">
+      <field name="name">Frais financiers</field>
+      <field name="code">48</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_49" model="account.account.template">
+      <field name="name">Pertes diverses</field>
+      <field name="code">49</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_IV"/>
+    </record>
+
+    <record id="pcl_V" model="account.account.template">
+      <field name="name">Recettes et dépenses patrimoniales de l’année</field>
+      <field name="code">V</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_51" model="account.account.template">
+      <field name="name">Apports de l’exploitant ou souscriptions de capital</field>
+      <field name="code">51</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_liability"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_52" model="account.account.template">
+      <field name="name">Prélèvements de l’exploitant ou répartitions de bénéfices</field>
+      <field name="code">52</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_liability"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_53" model="account.account.template">
+      <field name="name">Acquisitions de valeurs immobilisées</field>
+      <field name="code">53</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_54" model="account.account.template">
+      <field name="name">Cessions d’immobilisations</field>
+      <field name="code">54</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_55" model="account.account.template">
+      <field name="name">Tiers</field>
+      <field name="code">55</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_551" model="account.account.template">
+      <field name="name">Avances au personnel</field>
+      <field name="code">551</field>
+      <field name="type">receivable</field>
+      <field name="user_type" ref="account.data_account_type_receivable"/>
+      <field name="parent_id" ref="pcl_55"/>
+    </record>
+
+    <record id="pcl_552" model="account.account.template">
+      <field name="name">Emprunts</field>
+      <field name="code">552</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_liability"/>
+      <field name="parent_id" ref="pcl_55"/>
+    </record>
+
+    <record id="pcl_553" model="account.account.template">
+      <field name="name">Tiers divers</field>
+      <field name="code">553</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_liability"/>
+      <field name="parent_id" ref="pcl_55"/>
+    </record>
+
+    <record id="pcl_56" model="account.account.template">
+      <field name="name">Virements internes</field>
+      <field name="code">56</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_V"/>
+    </record>
+
+    <record id="pcl_VI" model="account.account.template">
+      <field name="name">Détermination du résultat net comptable</field>
+      <field name="code">VI</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_61" model="account.account.template">
+      <field name="name">Excédent (ou insuffisance) des recettes d’exploitation sur les dépenses d’exploitation</field>
+      <field name="code">61</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_liability"/>
+      <field name="parent_id" ref="pcl_VI"/>
+    </record>
+
+    <record id="pcl_62" model="account.account.template">
+      <field name="name">Dotations de l’exercice aux comptes amortissements et provisions (à déduire)</field>
+      <field name="code">62</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_VI"/>
+    </record>
+
+    <record id="pcl_621" model="account.account.template">
+      <field name="name">Amortissements des frais d’établissement</field>
+      <field name="code">621</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_62"/>
+    </record>
+
+    <record id="pcl_622" model="account.account.template">
+      <field name="name">Amortissements des immobilisations</field>
+      <field name="code">622</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_62"/>
+    </record>
+
+    <record id="pcl_6221" model="account.account.template">
+      <field name="name">Immeubles</field>
+      <field name="code">6221</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_622"/>
+    </record>
+
+    <record id="pcl_6222" model="account.account.template">
+      <field name="name">Matériel technique</field>
+      <field name="code">6222</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_622"/>
+    </record>
+
+    <record id="pcl_6223" model="account.account.template">
+      <field name="name">Véhicules</field>
+      <field name="code">6223</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_622"/>
+    </record>
+
+    <record id="pcl_6224" model="account.account.template">
+      <field name="name">Agencements, matériels et mobilier de bureau</field>
+      <field name="code">6224</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_622"/>
+    </record>
+
+    <record id="pcl_6225" model="account.account.template">
+      <field name="name">Autres immobilisations</field>
+      <field name="code">6225</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_expense"/>
+      <field name="parent_id" ref="pcl_622"/>
+    </record>
+
+    <record id="pcl_623" model="account.account.template">
+      <field name="name">Provisions pour dépréciation des immobilisations (non amortissables)</field>
+      <field name="code">623</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_62"/>
+    </record>
+
+    <record id="pcl_624" model="account.account.template">
+      <field name="name">Plus ou moins-values de cession d’éléments d’actif (à ajouter ou à déduire)</field>
+      <field name="code">624</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_62"/>
+    </record>
+
+    <record id="pcl_6241" model="account.account.template">
+      <field name="name">Prix de cession des éléments cédés</field>
+      <field name="code">6241</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_income"/>
+      <field name="parent_id" ref="pcl_624"/>
+    </record>
+
+    <record id="pcl_6242" model="account.account.template">
+      <field name="name">Valeur comptable des éléments cédés (à déduire)</field>
+      <field name="code">6242</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_624"/>
+    </record>
+
+    <record id="pcl_62421" model="account.account.template">
+      <field name="name">Prix de revient des éléments cédés</field>
+      <field name="code">62421</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_6242"/>
+    </record>
+
+    <record id="pcl_62422" model="account.account.template">
+      <field name="name">Amortissements (ou provisions) sur éléments cédés (à déduire)</field>
+      <field name="code">6242</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_6242"/>
+    </record>
+
+    <record id="pcl_VII" model="account.account.template">
+      <field name="name">Cumul des éléments d’actif et correction de valeur Valeurs immobilisées</field>
+      <field name="code">VII</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_0"/>
+    </record>
+
+    <record id="pcl_71" model="account.account.template">
+      <field name="name">Valeurs immobilisées</field>
+      <field name="code">71</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_VII"/>
+    </record>
+
+    <record id="pcl_711" model="account.account.template">
+      <field name="name">Frais d’établissement</field>
+      <field name="code">711</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_71"/>
+    </record>
+
+    <record id="pcl_712" model="account.account.template">
+      <field name="name">Immobilisations non amortissables</field>
+      <field name="code">712</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_71"/>
+    </record>
+
+    <record id="pcl_7121" model="account.account.template">
+      <field name="name">Sols</field>
+      <field name="code">7121</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_712"/>
+    </record>
+
+    <record id="pcl_7122" model="account.account.template">
+      <field name="name">Autres immobilisations non amortissables</field>
+      <field name="code">7122</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_712"/>
+    </record>
+
+    <record id="pcl_713" model="account.account.template">
+      <field name="name">Immobilisations amortissables</field>
+      <field name="code">713</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_71"/>
+    </record>
+
+    <record id="pcl_7131" model="account.account.template">
+      <field name="name">Immeubles</field>
+      <field name="code">7131</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_713"/>
+    </record>
+
+    <record id="pcl_7132" model="account.account.template">
+      <field name="name">Matériel technique</field>
+      <field name="code">7132</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_713"/>
+    </record>
+
+    <record id="pcl_7133" model="account.account.template">
+      <field name="name">Véhicules</field>
+      <field name="code">7133</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_713"/>
+    </record>
+
+    <record id="pcl_7134" model="account.account.template">
+      <field name="name">Agencements, matériel et mobilier de bureau</field>
+      <field name="code">7134</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_713"/>
+    </record>
+
+    <record id="pcl_7135" model="account.account.template">
+      <field name="name">Autres immobilisations amortissables</field>
+      <field name="code">7135</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_713"/>
+    </record>
+
+    <record id="pcl_72" model="account.account.template">
+      <field name="name">Amortissements et provisions</field>
+      <field name="code">72</field>
+      <field name="type">view</field>
+      <field name="user_type" ref="account.data_account_type_view"/>
+      <field name="parent_id" ref="pcl_VII"/>
+    </record>
+
+    <record id="pcl_721" model="account.account.template">
+      <field name="name">Amortissements des frais d’établissement</field>
+      <field name="code">721</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_722" model="account.account.template">
+      <field name="name">Amortissement des immeubles</field>
+      <field name="code">722</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_723" model="account.account.template">
+      <field name="name">Amortissement du matériel technique</field>
+      <field name="code">723</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_724" model="account.account.template">
+      <field name="name">Amortissement des véhicules</field>
+      <field name="code">724</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_725" model="account.account.template">
+      <field name="name">Amortissements des agencements, du matériel et du mobilier de bureau</field>
+      <field name="code">725</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_726" model="account.account.template">
+      <field name="name">Amortissement des autres immobilisations</field>
+      <field name="code">726</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+    <record id="pcl_727" model="account.account.template">
+      <field name="name">Provisions pour dépréciation des immobilisations (non amortissables)</field>
+      <field name="code">727</field>
+      <field name="type">other</field>
+      <field name="user_type" ref="account.data_account_type_asset"/>
+      <field name="parent_id" ref="pcl_72"/>
+    </record>
+
+  </data>
+</openerp>
